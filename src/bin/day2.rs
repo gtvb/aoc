@@ -64,28 +64,14 @@ pub fn find_highest_score_second_part(input: &str) -> u32 {
     input.trim().split("\n").fold(0, |acc, s| acc + SCORES_SECOND_PART[s])
 }
 
+fn main() {
+    let test = include_str!("day2.test");
+    let input = include_str!("day2.input");
 
-#[cfg(test)]
-mod test {
-    use super::*;
+    println!("Test result first part: {}", find_highest_score_first_part(test));
+    println!("Input result first part: {}", find_highest_score_first_part(input));
 
-    fn read_input_contents() -> (&'static str, &'static str) {
-        (include_str!("./input_simple.txt"), include_str!("./input.txt"))
-    }
 
-    #[test]
-    fn test_first_part() {
-        let (input1, input2) = read_input_contents();
-        
-        assert_eq!(find_highest_score_first_part(&input1), 15);
-        assert_eq!(find_highest_score_first_part(&input2), 10310);
-    }
-
-    #[test]
-    fn test_second_part() {
-        let (input1, input2) = read_input_contents();
-
-        assert_eq!(find_highest_score_second_part(&input1), 12);
-        assert_eq!(find_highest_score_second_part(&input2), 14859);
-    }
+    println!("Test result first part: {}", find_highest_score_second_part(test));
+    println!("Input result second part: {}", find_highest_score_second_part(input));
 }
